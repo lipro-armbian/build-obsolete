@@ -1,0 +1,8 @@
+/output/ccache/*
+/output/cache/mount/
+/output/cache/rootfs/*
+/output/debs/*
+/output/debug/*
+/output/images/*
+/sources/*
+/toolchains/*
