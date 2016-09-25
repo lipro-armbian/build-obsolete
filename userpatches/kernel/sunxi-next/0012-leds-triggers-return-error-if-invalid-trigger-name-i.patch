@@ -1,0 +1,33 @@
+From a3eac76cdf7225aa1f87aa4514664f0372b9a1c1 Mon Sep 17 00:00:00 2001
+From: Heiner Kallweit <hkallweit1@gmail.com>
+Date: Fri, 1 Jul 2016 23:08:54 +0200
+Subject: [PATCH 12/16] leds: triggers: return error if invalid trigger name is
+ provided via sysfs
+
+If an invalid trigger name is provided via sysfs currently no error
+is returned. Therefore it's not possible to determine whether the
+trigger was set successfully.
+Fix this by returning -EINVAL if no trigger is matched.
+
+Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+Signed-off-by: Jacek Anaszewski <j.anaszewski@samsung.com>
+---
+ drivers/leds/led-triggers.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/leds/led-triggers.c b/drivers/leds/led-triggers.c
+index 55fa65e..c92702a 100644
+--- a/drivers/leds/led-triggers.c
++++ b/drivers/leds/led-triggers.c
+@@ -60,6 +60,8 @@ ssize_t led_trigger_store(struct device *dev, struct device_attribute *attr,
+ 			goto unlock;
+ 		}
+ 	}
++	/* we come here only if buf matches no trigger */
++	ret = -EINVAL;
+ 	up_read(&triggers_list_lock);
+ 
+ unlock:
+-- 
+2.10.0
+
