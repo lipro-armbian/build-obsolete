@@ -1,0 +1,4 @@
+[submodule "lipro-armbian/lib"]
+	path = lib
+	url = git@github.com:lipro-armbian/lib.git
+	branch = master
