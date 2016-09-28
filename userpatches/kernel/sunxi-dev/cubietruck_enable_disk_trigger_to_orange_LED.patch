@@ -1,0 +1,12 @@
+diff --git a/arch/arm/boot/dts/sun7i-a20-cubietruck.dts b/arch/arm/boot/dts/sun7i-a20-cubietruck.dts
+index 801449b..388de82 100644
+--- a/arch/arm/boot/dts/sun7i-a20-cubietruck.dts
++++ b/arch/arm/boot/dts/sun7i-a20-cubietruck.dts
+@@ -76,6 +76,7 @@
+ 		orange {
+ 			label = "cubietruck:orange:usr";
+ 			gpios = <&pio 7 20 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "disk-activity";
+ 		};
+ 
+ 		white {
