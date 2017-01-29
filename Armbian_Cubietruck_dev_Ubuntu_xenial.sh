@@ -18,6 +18,5 @@ exec ./compile.sh local \
 	BUILD_DESKTOP=no \
 	ROOTFS_TYPE=ext4 \
 	COMPRESS_OUTPUTIMAGE=yes \
-	SEVENZIP=yes \
 	PROGRESS_DISPLAY=plain \
 	PROGRESS_LOG_TO_FILE=yes
