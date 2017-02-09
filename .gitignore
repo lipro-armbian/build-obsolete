@@ -28,3 +28,5 @@ tags
 /output/images/*
 /sources/*
 /toolchains/*
+/userpatches/overlay/input
+/userpatches/overlay/output
