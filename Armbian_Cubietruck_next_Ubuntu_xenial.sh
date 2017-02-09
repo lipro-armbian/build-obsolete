@@ -8,6 +8,7 @@
 #
 # This file is a part of tool chain https://github.com/lipro-armbian/build
 #
+# Additional useful options: CLEAN_LEVEL=cache
 #--------------------------------------------------------------------------------------------------------------------------------
 export LANG=""
 exec ./compile.sh local \
@@ -18,5 +19,6 @@ exec ./compile.sh local \
 	BUILD_DESKTOP=no \
 	ROOTFS_TYPE=ext4 \
 	COMPRESS_OUTPUTIMAGE=yes \
+	CUSTOMIZE_WITH="Docker" \
 	PROGRESS_DISPLAY=plain \
 	PROGRESS_LOG_TO_FILE=yes
