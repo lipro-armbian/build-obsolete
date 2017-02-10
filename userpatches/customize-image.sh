@@ -36,7 +36,8 @@ source $SRC/lib/general.sh
 # Prepare service list that have to process.
 create_service_list CUSTOMIZE_WITH
 
-display_alert "Starting release specific customization process" "$BOARD $RELEASE" "ext"
+display_alert "Starting release specific customization process" \
+	"$BOARD $RELEASE" "ext"
 case $RELEASE in
 	wheezy)
 		# your code here
@@ -55,13 +56,16 @@ case $RELEASE in
 		;;
 esac
 
-display_alert "Starting common customization process" "$BOARD $RELEASE" "ext"
-for SRV in $CUSTOMIZE_SERVICES; do
+display_alert "Starting common customization process" \
+	"$(eval 'echo ${CUSTOMIZE_SERVICES[@]}')" "ext"
+for SRV in ${CUSTOMIZE_SERVICES[@]}; do
 	case $SRV in
 		docker)
-			display_alert "Run installation" "$SRV" "info"
 			DOCKER_OPTIONS+=(${RELEASE,,})
+			display_alert "Run installation" \
+				"$SRV $(eval 'echo ${DOCKER_OPTIONS[@]}')"
 			create_service_options SRV DOCKER_OPTIONS
+			display_alert "With options" "$(eval 'echo ${DOCKER[@]}')"
 			create_apt_source_list DOCKER
 			install_apt_get DOCKER
 			;;

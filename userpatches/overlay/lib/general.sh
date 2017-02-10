@@ -66,7 +66,7 @@ foreach(){
 #                       variable will exist, either without or with content
 #                       of given options in the origin customization string.
 #
-__extend_service_list()
+__extend_service_list ()
 {
 	local srv=$2
 
@@ -145,7 +145,7 @@ create_service_list ()
 #   https://docs.docker.com/engine/installation/linux/ubuntu/
 #   https://docs.docker.com/cs-engine/install/#/install-on-ubuntu-1404-lts
 #
-__extend_docker_options()
+__extend_docker_options ()
 {
 	local opt=$2
 
