@@ -34,6 +34,7 @@ source $SRC/input/functions.sh
 source $SRC/lib/general.sh
 
 # Prepare service list that have to process.
+[[ -z "$CUSTOMIZE_WITH" ]] && CUSTOMIZE_WITH=""
 create_service_list CUSTOMIZE_WITH
 
 display_alert "Starting release specific customization process" \
